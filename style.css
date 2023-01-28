@@ -1,0 +1,189 @@
+#wrapper {
+  margin-top: 20px;
+}
+
+.greeting {
+  display: none;
+}
+
+body {
+  background: #6d7074;
+}
+
+.terminal-window {
+  text-align: left;
+  width: 800px;
+  height: 450px;
+  border-radius: 10px;
+  margin: auto;
+  position: relative;
+  overflow: hidden;
+}
+
+.terminal-window header {
+  background: #252728;
+  height: 30px;
+  border-radius: 8px 8px 0 0;
+  padding-left: 10px;
+}
+
+.terminal-window header .button {
+  width: 12px;
+  height: 12px;
+  margin: 10px 4px 0 0;
+  display: inline-block;
+  border-radius: 8px;
+}
+
+.terminal-window header .button.green {
+  background: #3bb662;
+}
+
+.terminal-window header .button.yellow {
+  background: #e5c30f;
+}
+
+.terminal-window header .button.red {
+  background: #e75448;
+}
+
+.terminal-window section.terminal {
+  color: #2afc74;
+  font-family: Menlo, Monaco, "Consolas", "Courier New", "Courier";
+  font-size: 16pt;
+  background: #30353a;
+  padding: 10px;
+  box-sizing: border-box;
+  position: absolute;
+  width: 100%;
+  top: 30px;
+  bottom: 0;
+  overflow: auto;
+}
+
+.terminal {
+  min-width: 380px;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+.desktopDir,
+.desktopDir2 {
+  display: inline;
+}
+
+.mobileDir,
+.mobileDir2 {
+  display: none;
+}
+
+.table {
+  width: 90%;
+}
+
+tr {
+  height: 100px;
+  position: relative;
+}
+
+.fa-link,
+.fa-download,
+.fa-paper-plane {
+  color: white;
+}
+
+.emailbutton ~ .EmailMe {
+  display: none;
+}
+
+.emailbutton:hover {
+  color: white;
+}
+
+.emailbutton:hover ~ .address {
+  display: none;
+}
+
+.emailbutton:hover ~ .EmailMe {
+  display: inline;
+}
+
+.githubHover:hover {
+  color: white;
+}
+
+.resumeHover:hover {
+  color: white;
+}
+
+.linkedinHover:hover {
+  color: white;
+}
+
+.bottomPrompt {
+  position: absolute;
+  bottom: 0;
+  padding-bottom: 5px;
+}
+
+.blinker {
+  animation: blinker 1s linear infinite;
+}
+
+@keyframes blinker {
+  50% {
+    opacity: 0;
+  }
+}
+/* mobile styling */
+@media (max-width: 800px) {
+  .greeting {
+    display: inline;
+  }
+
+  .terminal-window {
+    width: 80vw;
+    min-width: 80px;
+    height: 500px;
+  }
+
+  .smallprompt {
+    display: none;
+  }
+
+  .desktopDir,
+.desktopDir2 {
+    display: none;
+  }
+
+  .mobileDir,
+.mobileDir2 {
+    display: inline;
+  }
+
+  .foo,
+.boo {
+    font-size: 80%;
+  }
+
+  .table {
+    column-gap: 20px;
+    row-gap: 20px;
+  }
+
+  .table td {
+    margin: 0 0 25px 0;
+  }
+
+  .table tr {
+    margin: 0 0 50px 0;
+  }
+
+  tr {
+    display: flex;
+    flex-direction: column;
+  }
+}
