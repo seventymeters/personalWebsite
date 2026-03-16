@@ -21,7 +21,7 @@ a {
 
 /* ── Terminal window ── */
 .terminal-window {
-  width: 820px;
+  width: clamp(820px, 65vw, 1300px);
   max-width: 100%;
   border-radius: 12px;
   overflow: hidden;
