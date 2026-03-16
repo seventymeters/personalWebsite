@@ -1,189 +1,434 @@
-#wrapper {
-  margin-top: 20px;
-}
-
-.greeting {
-  display: none;
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
 }
 
 body {
-  background: #6d7074;
-}
-
-.terminal-window {
-  text-align: left;
-  width: 800px;
-  height: 450px;
-  border-radius: 10px;
-  margin: auto;
-  position: relative;
-  overflow: hidden;
-}
-
-.terminal-window header {
-  background: #252728;
-  height: 30px;
-  border-radius: 8px 8px 0 0;
-  padding-left: 10px;
-}
-
-.terminal-window header .button {
-  width: 12px;
-  height: 12px;
-  margin: 10px 4px 0 0;
-  display: inline-block;
-  border-radius: 8px;
-}
-
-.terminal-window header .button.green {
-  background: #3bb662;
-}
-
-.terminal-window header .button.yellow {
-  background: #e5c30f;
-}
-
-.terminal-window header .button.red {
-  background: #e75448;
-}
-
-.terminal-window section.terminal {
-  color: #2afc74;
-  font-family: Menlo, Monaco, "Consolas", "Courier New", "Courier";
-  font-size: 16pt;
-  background: #30353a;
-  padding: 10px;
-  box-sizing: border-box;
-  position: absolute;
-  width: 100%;
-  top: 30px;
-  bottom: 0;
-  overflow: auto;
-}
-
-.terminal {
-  min-width: 380px;
+  background: #000000;
+  font-family: 'Menlo', 'Monaco', 'Consolas', 'Courier New', monospace;
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 24px 16px;
 }
 
 a {
-  color: inherit;
   text-decoration: none;
+  color: inherit;
 }
 
-.desktopDir,
-.desktopDir2 {
-  display: inline;
+/* ── Terminal window ── */
+.terminal-window {
+  width: 820px;
+  max-width: 100%;
+  border-radius: 12px;
+  overflow: hidden;
+  box-shadow: 0 40px 120px rgba(0, 0, 0, 0.9), 0 0 60px rgba(0, 0, 0, 0.7);
 }
 
-.mobileDir,
-.mobileDir2 {
+/* ── Titlebar ── */
+.titlebar {
+  background: #252728;
+  height: 36px;
+  display: flex;
+  align-items: center;
+  padding: 0 14px;
+  gap: 8px;
+}
+
+.dot {
+  width: 13px;
+  height: 13px;
+  border-radius: 50%;
+}
+.dot.red    { background: #ff5f57; }
+.dot.yellow { background: #ffbd2e; }
+.dot.green  { background: #28ca41; }
+
+.titlebar-text {
+  flex: 1;
+  text-align: center;
+  color: #ffffff;
+  font-size: 13px;
+  font-weight: 600;
+  letter-spacing: 0.04em;
+  margin-right: 39px; /* balance the dots */
+}
+
+/* ── Terminal body ── */
+.terminal-body {
+  background: #1e1e2e;
+  padding: 22px 26px 26px;
+  color: #cdd6f4;
+  font-size: 13.5px;
+  line-height: 1.6;
+}
+
+/* ── Sections ── */
+.section {
+  margin-bottom: 22px;
+}
+
+/* ── Prompt line ── */
+.prompt-line {
+  margin-bottom: 8px;
+  user-select: none;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.last-prompt {
+  margin-bottom: 0;
+}
+
+.u   { color: #89dceb; }
+.h   { color: #cba6f7; }
+.p   { color: #89b4fa; }
+.cmd { color: #a6e3a1; }
+.cmt { color: #7c7f93; }
+
+/* ── Bio block ── */
+.bio-block {
+  background: #181825;
+  border-left: 3px solid #cba6f7;
+  padding: 13px 16px;
+  border-radius: 0 8px 8px 0;
+}
+
+.bio-name {
+  color: #cba6f7;
+  font-size: 17px;
+  font-weight: bold;
+  margin-bottom: 3px;
+}
+
+.bio-role {
+  color: #89b4fa;
+  font-size: 12px;
+  margin-bottom: 9px;
+  letter-spacing: 0.02em;
+}
+
+.bio-desc {
+  color: #a6adc8;
+  font-size: 12.5px;
+  line-height: 1.65;
+}
+
+/* ── Skill categories ── */
+.skill-categories {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 7px;
+}
+
+.skill-cat {
+  background: #181825;
+  border: 1px solid #313244;
+  color: #ffffff;
+  padding: 5px 13px;
+  border-radius: 6px;
+  font-size: 12.5px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  gap: 7px;
+  transition: background 0.15s, border-color 0.15s, color 0.15s;
+  user-select: none;
+}
+
+.skill-cat:hover,
+.skill-cat.active {
+  background: #2a2a3e;
+  border-color: #cba6f7;
+  color: #f5c2e7;
+}
+
+.cat-icon {
+  font-size: 10px;
+}
+
+.arrow {
+  font-size: 10px;
+  color: #7c7f93;
+  transition: transform 0.2s;
+  margin-left: 2px;
+}
+
+.skill-cat.active .arrow {
+  transform: rotate(90deg);
+  color: #f5c2e7;
+}
+
+/* ── Skill detail panel ── */
+.skill-detail {
   display: none;
+  margin-top: 10px;
+  background: #181825;
+  border: 1px solid #313244;
+  border-radius: 8px;
+  padding: 13px 15px;
+  animation: fadeIn 0.15s ease;
 }
 
-.table {
-  width: 90%;
+.skill-detail.visible {
+  display: block;
 }
 
-tr {
-  height: 100px;
-  position: relative;
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(-3px); }
+  to   { opacity: 1; transform: translateY(0); }
 }
 
-.fa-link,
-.fa-download,
-.fa-paper-plane {
-  color: white;
+.detail-label {
+  font-size: 10.5px;
+  text-transform: uppercase;
+  letter-spacing: 0.12em;
+  color: #9399b2;
+  margin-bottom: 9px;
 }
 
-.emailbutton ~ .EmailMe {
+.skill-tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+}
+
+.skill-tag {
+  background: #313244;
+  color: #a6e3a1;
+  border: 1px solid #45475a;
+  padding: 3px 10px;
+  border-radius: 4px;
+  font-size: 11.5px;
+}
+
+/* ── Hire me banner ── */
+.hire-banner {
   display: none;
+  background: #111d11;
+  border: 1px solid #2d5a2d;
+  border-left: 3px solid #a6e3a1;
+  border-radius: 0 6px 6px 0;
+  padding: 10px 16px;
+  margin-bottom: 20px;
 }
 
-.emailbutton:hover {
-  color: white;
+.hire-banner.visible {
+  display: block;
 }
 
-.emailbutton:hover ~ .address {
-  display: none;
+.hire-banner-top {
+  display: flex;
+  align-items: center;
+  gap: 9px;
+  margin-bottom: 4px;
 }
 
-.emailbutton:hover ~ .EmailMe {
-  display: inline;
+.hire-title {
+  color: #a6e3a1;
+  font-size: 13px;
+  font-weight: bold;
+  letter-spacing: 0.02em;
 }
 
-.githubHover:hover {
-  color: white;
+.hire-banner-sub {
+  color: #7c9e7c;
+  font-size: 11.5px;
+  padding-left: 17px;
 }
 
-.resumeHover:hover {
-  color: white;
+.hire-dot {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: #a6e3a1;
+  flex-shrink: 0;
+  animation: pulse 2s ease-in-out infinite;
 }
 
-.linkedinHover:hover {
-  color: white;
+@keyframes pulse {
+  0%, 100% { opacity: 1; box-shadow: 0 0 0 0 rgba(166, 227, 161, 0.5); }
+  50%       { opacity: 0.8; box-shadow: 0 0 0 5px rgba(166, 227, 161, 0); }
 }
 
-.bottomPrompt {
-  position: absolute;
-  bottom: 0;
-  padding-bottom: 5px;
+.resume-card.hire-glow {
+  animation: resumePulse 2.5s ease-in-out infinite;
 }
 
-.blinker {
-  animation: blinker 1s linear infinite;
+@keyframes resumePulse {
+  0%, 100% { border-color: #313244; box-shadow: none; }
+  50%       { border-color: #a6e3a1; box-shadow: 0 0 14px rgba(166, 227, 161, 0.15); }
 }
 
-@keyframes blinker {
-  50% {
-    opacity: 0;
+/* ── Resume card ── */
+.resume-card {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  background: #181825;
+  border: 1px solid #313244;
+  border-radius: 8px;
+  padding: 14px 18px;
+  color: #cdd6f4;
+  transition: border-color 0.15s, background 0.15s, transform 0.1s;
+  max-width: 420px;
+}
+
+.resume-card:hover {
+  border-color: #fab387;
+  background: #211e1a;
+  transform: translateY(-2px);
+}
+
+.resume-card > .fa-file-lines {
+  font-size: 28px;
+  color: #fab387;
+  flex-shrink: 0;
+}
+
+.rc-label {
+  font-size: 10.5px;
+  color: #9399b2;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  margin-bottom: 2px;
+}
+
+.rc-name {
+  font-size: 14px;
+  color: #cdd6f4;
+}
+
+.rc-sub {
+  font-size: 11px;
+  color: #7c7f93;
+  margin-top: 2px;
+}
+
+.dl-icon {
+  margin-left: auto;
+  color: #ffffff;
+  font-size: 17px;
+  flex-shrink: 0;
+}
+
+.resume-card:hover .dl-icon {
+  color: #fab387;
+}
+
+/* ── Contact links ── */
+.links-row {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+}
+
+.link-card {
+  flex: 1;
+  min-width: 180px;
+  background: #181825;
+  border: 1px solid #313244;
+  border-radius: 8px;
+  padding: 11px 15px;
+  display: flex;
+  align-items: center;
+  gap: 11px;
+  color: #cdd6f4;
+  transition: border-color 0.15s, background 0.15s, transform 0.1s;
+}
+
+.link-card:hover {
+  border-color: #cba6f7;
+  background: #1e1e2e;
+  transform: translateY(-2px);
+}
+
+.link-card i {
+  font-size: 20px;
+  width: 22px;
+  text-align: center;
+  flex-shrink: 0;
+}
+
+.lc-label {
+  font-size: 10.5px;
+  color: #9399b2;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+}
+
+.lc-value {
+  font-size: 12.5px;
+  color: #cdd6f4;
+}
+
+.link-card.email    i { color: #f38ba8; }
+.link-card.github   i { color: #cdd6f4; }
+.link-card.linkedin i { color: #89b4fa; }
+
+/* ── Blinking cursor ── */
+.cursor {
+  display: inline-block;
+  width: 8px;
+  height: 14px;
+  background: #cdd6f4;
+  vertical-align: middle;
+  animation: blink 1s step-end infinite;
+  margin-left: 1px;
+  border-radius: 1px;
+}
+
+@keyframes blink {
+  50% { opacity: 0; }
+}
+
+/* ── Mobile ── */
+@media (max-width: 600px) {
+  body {
+    align-items: flex-start;
+    padding: 16px 12px;
   }
-}
-/* mobile styling */
-@media (max-width: 800px) {
-  .greeting {
-    display: inline;
+
+  /* Fix 3: don't shrink font — keep it readable */
+  .terminal-body {
+    font-size: 13.5px;
+    padding: 16px;
   }
 
-  .terminal-window {
-    width: 80vw;
-    min-width: 80px;
-    height: 500px;
-  }
-
-  .smallprompt {
+  /* Fix 1: hide @host in prompts, leaving just guest:~$ */
+  .prompt-host {
     display: none;
   }
 
-  .desktopDir,
-.desktopDir2 {
+  .titlebar-text {
+    font-size: 11px;
+  }
+
+  /* Fix 2: larger touch targets on skill pills */
+  .skill-cat {
+    padding: 10px 14px;
+    min-height: 44px;
+  }
+
+  /* Fix 5: hide hire banner subtitle, keep headline */
+  .hire-banner-sub {
     display: none;
   }
 
-  .mobileDir,
-.mobileDir2 {
-    display: inline;
+  .resume-card {
+    max-width: 100%;
   }
 
-  .foo,
-.boo {
-    font-size: 80%;
+  /* Fix 4: contact cards full width on mobile */
+  .link-card {
+    min-width: 100%;
   }
 
-  .table {
-    column-gap: 20px;
-    row-gap: 20px;
-  }
-
-  .table td {
-    margin: 0 0 25px 0;
-  }
-
-  .table tr {
-    margin: 0 0 50px 0;
-  }
-
-  tr {
-    display: flex;
-    flex-direction: column;
+  .bio-name {
+    font-size: 15px;
   }
 }
