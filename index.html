@@ -1,51 +1,233 @@
 <!DOCTYPE html>
-<html lang="en" >
+<html lang="en">
 <head>
   <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>tomschluep.com</title>
-  
-<meta name="viewport" content="width=device-width, initial-scale=1"><link rel='stylesheet' href='https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/css/all.min.css'><link rel="stylesheet" href="./style.css">
-
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/css/all.min.css">
+  <link rel="stylesheet" href="./style.css">
 </head>
 <body>
-<!-- partial:index.partial.html -->
-<div id="wrapper">
-  <div class="terminal-window">
-    <header>
-      <div class="button green"></div>
-      <div class="button yellow"></div>
-      <div class="button red"></div>
-      <span class="greeting" style="color:white"> TomSchluep.com </span>
-    </header>
-    <section class="terminal">
-      <div class="history">
-      </div>
-      guest<span class="smallprompt">@tomschluep.com</span><span style="color:white">:</span><span style="color:#1967d2">~</span><span style="color:white">$&nbsp;</span>
-      <br>
-      guest<span class="smallprompt">@tomschluep.com</span><span style="color:white">:</span><span style="color:#1967d2">~</span><span style="color:white">$&nbsp;<span class="desktopDir">cd Development/helloWorld</span><span class="mobileDir">cd Dev/Hello</span></span>
-      <br>
-      guest<span class="smallprompt">@tomschluep.com</span><span style="color:white">:</span><span style="color:#1967d2">~</span><span style="color:white">$&nbsp;<span class="desktopDir2">ls websiteDesktop</span><span class="mobileDir2">ls siteMobile</span></span>
-      <br>
-      <br>
-      <table class="table">
-        <tr class="foo">
-          <td><span class="emailbutton"><a href="mailto:tomschluep@gmail.com?subject=Hi%20Tom!" target="_blank"><i class="fa-regular fa-envelope fa-3x"></i></a></span><span class="address">&nbsp;TomSchluep@gmail.com <i class="fa-regular fa-paper-plane"></i></span><span class="EmailMe">&nbsp;Click here to email me </span></td>
-          <td class="githubHover"><a href="https://github.com/seventymeters" target="_blank"><i class="fa-brands fa-square-github fa-3x"></i>&nbsp;seventymeters <i class="fa-solid fa-link"></i></a></td>
-        </tr>
-        <tr class="boo">
-          <td class="resumeHover"><a href="https://app.box.com/file/1125163243435?s=ha169jmki8wy6irb2on1g2de7t2uavo7" target="_blank"><i class="fa-regular fa-folder fa-3x"></i>&nbsp;Resume.pdf <i class="fa-solid fa-download"></i></a></td>
-          <td class="linkedinHover"><a href="https://linkedin.com/in/tomschluep" target="_blank"><i class="fa-brands fa-linkedin fa-3x"></i>&nbsp;/in/tomschluep <i class="fa-solid fa-link"></i></a> </td>
-        </tr>
-      </table>
-      <div class="bottomPrompt">guest<span class="smallprompt">@tomschluep.com</span><span style="color:white">:</span><span style="color:#1967d2">~</span><span style="color:white">$</span><span style="color:white" class="blinker">|</span>
-      </div>
-      <span class="prompt"></span><br>
 
-    </section>
+<div class="terminal-window">
+  <div class="titlebar">
+    <div class="dot red"></div>
+    <div class="dot yellow"></div>
+    <div class="dot green"></div>
+    <div class="titlebar-text">tomschluep.com</div>
+  </div>
+
+  <div class="terminal-body">
+
+    <!-- hire me banner -->
+    <div class="hire-banner" id="hireBadge">
+      <div class="hire-banner-top">
+        <span class="hire-dot"></span>
+        <span class="hire-title">Open to new opportunities</span>
+      </div>
+      <div class="hire-banner-sub">Available for full-time roles &amp; interesting projects. Let's build something great.</div>
+    </div>
+
+    <!-- whoami -->
+    <div class="section">
+      <div class="prompt-line">
+        <span class="u">guest</span><span class="prompt-host">@<span class="h">tomschluep.com</span></span>:<span class="p">~</span>$ <span class="cmd">whoami</span>
+      </div>
+      <div class="bio-block">
+        <div class="bio-name">Tom Schluep</div>
+        <div class="bio-role">Software Engineer &nbsp;·&nbsp; Builder &nbsp;·&nbsp; Open Source Enthusiast</div>
+        <div class="bio-desc">I build things for the web and beyond. Passionate about clean systems, great developer experience, and shipping products people actually want to use.</div>
+      </div>
+    </div>
+
+    <!-- skills -->
+    <div class="section">
+      <div class="prompt-line">
+        <span class="u">guest</span><span class="prompt-host">@<span class="h">tomschluep.com</span></span>:<span class="p">~</span>$ <span class="cmd">ls skills/</span> <span class="cmt"># click to expand</span>
+      </div>
+      <div class="skill-categories">
+        <div class="skill-cat" data-cat="backend" onclick="toggle(this)">
+          <i class="fa-solid fa-server cat-icon" style="color:#89b4fa"></i> Backend <span class="arrow">›</span>
+        </div>
+        <div class="skill-cat" data-cat="frontend" onclick="toggle(this)">
+          <i class="fa-solid fa-display cat-icon" style="color:#a6e3a1"></i> Frontend <span class="arrow">›</span>
+        </div>
+        <div class="skill-cat" data-cat="infra" onclick="toggle(this)">
+          <i class="fa-solid fa-network-wired cat-icon" style="color:#fab387"></i> Infrastructure <span class="arrow">›</span>
+        </div>
+        <div class="skill-cat" data-cat="cloud" onclick="toggle(this)">
+          <i class="fa-solid fa-cloud cat-icon" style="color:#89dceb"></i> Cloud <span class="arrow">›</span>
+        </div>
+        <div class="skill-cat" data-cat="cicd" onclick="toggle(this)">
+          <i class="fa-solid fa-arrows-rotate cat-icon" style="color:#f38ba8"></i> CI/CD <span class="arrow">›</span>
+        </div>
+        <div class="skill-cat" data-cat="devops" onclick="toggle(this)">
+          <i class="fa-solid fa-gears cat-icon" style="color:#cba6f7"></i> DevOps <span class="arrow">›</span>
+        </div>
+      </div>
+
+      <div class="skill-detail" id="detail-backend">
+        <div class="detail-label">Backend Engineering</div>
+        <div class="skill-tags">
+          <span class="skill-tag">Node.js</span>
+          <span class="skill-tag">Python</span>
+          <span class="skill-tag">REST APIs</span>
+          <span class="skill-tag">GraphQL</span>
+          <span class="skill-tag">PostgreSQL</span>
+          <span class="skill-tag">MySQL</span>
+          <span class="skill-tag">Redis</span>
+          <span class="skill-tag">RabbitMQ</span>
+          <span class="skill-tag">Express</span>
+          <span class="skill-tag">FastAPI</span>
+          <span class="skill-tag">Microservices</span>
+        </div>
+      </div>
+      <div class="skill-detail" id="detail-frontend">
+        <div class="detail-label">Frontend</div>
+        <div class="skill-tags">
+          <span class="skill-tag">React</span>
+          <span class="skill-tag">TypeScript</span>
+          <span class="skill-tag">JavaScript</span>
+          <span class="skill-tag">HTML / CSS</span>
+          <span class="skill-tag">Tailwind</span>
+          <span class="skill-tag">Next.js</span>
+          <span class="skill-tag">Vite</span>
+          <span class="skill-tag">Webpack</span>
+        </div>
+      </div>
+      <div class="skill-detail" id="detail-infra">
+        <div class="detail-label">Infrastructure</div>
+        <div class="skill-tags">
+          <span class="skill-tag">Ansible</span>
+          <span class="skill-tag">SaltStack</span>
+          <span class="skill-tag">Terraform</span>
+          <span class="skill-tag">Nginx</span>
+          <span class="skill-tag">HAProxy</span>
+          <span class="skill-tag">Linux</span>
+          <span class="skill-tag">Bash</span>
+          <span class="skill-tag">Networking</span>
+          <span class="skill-tag">DNS</span>
+          <span class="skill-tag">TLS / PKI</span>
+        </div>
+      </div>
+      <div class="skill-detail" id="detail-cloud">
+        <div class="detail-label">Cloud</div>
+        <div class="skill-tags">
+          <span class="skill-tag">AWS</span>
+          <span class="skill-tag">EC2 / ECS</span>
+          <span class="skill-tag">S3</span>
+          <span class="skill-tag">Lambda</span>
+          <span class="skill-tag">RDS</span>
+          <span class="skill-tag">CloudFront</span>
+          <span class="skill-tag">IAM</span>
+          <span class="skill-tag">GCP</span>
+          <span class="skill-tag">Cloudflare</span>
+        </div>
+      </div>
+      <div class="skill-detail" id="detail-cicd">
+        <div class="detail-label">CI / CD</div>
+        <div class="skill-tags">
+          <span class="skill-tag">GitHub Actions</span>
+          <span class="skill-tag">Jenkins</span>
+          <span class="skill-tag">CircleCI</span>
+          <span class="skill-tag">ArgoCD</span>
+          <span class="skill-tag">Helm</span>
+          <span class="skill-tag">Semantic Release</span>
+          <span class="skill-tag">GitOps</span>
+        </div>
+      </div>
+      <div class="skill-detail" id="detail-devops">
+        <div class="detail-label">DevOps &amp; Observability</div>
+        <div class="skill-tags">
+          <span class="skill-tag">Docker</span>
+          <span class="skill-tag">Kubernetes</span>
+          <span class="skill-tag">Prometheus</span>
+          <span class="skill-tag">Grafana</span>
+          <span class="skill-tag">ELK Stack</span>
+          <span class="skill-tag">Datadog</span>
+          <span class="skill-tag">PagerDuty</span>
+          <span class="skill-tag">Git</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- resume -->
+    <div class="section">
+      <div class="prompt-line">
+        <span class="u">guest</span><span class="prompt-host">@<span class="h">tomschluep.com</span></span>:<span class="p">~</span>$ <span class="cmd">open resume/</span>
+      </div>
+      <a class="resume-card" id="resumeCard" href="https://app.box.com/file/1125163243435?s=ha169jmki8wy6irb2on1g2de7t2uavo7" target="_blank">
+        <i class="fa-regular fa-file-lines"></i>
+        <div class="resume-text">
+          <div class="rc-label">Resume</div>
+          <div class="rc-name">Tom_Schluep_Resume.pdf</div>
+          <div class="rc-sub">Full work history &amp; experience</div>
+        </div>
+        <i class="fa-solid fa-download dl-icon"></i>
+      </a>
+    </div>
+
+    <!-- contacts -->
+    <div class="section">
+      <div class="prompt-line">
+        <span class="u">guest</span><span class="prompt-host">@<span class="h">tomschluep.com</span></span>:<span class="p">~</span>$ <span class="cmd">ls contacts/</span>
+      </div>
+      <div class="links-row">
+        <a class="link-card email" href="mailto:tomschluep@gmail.com?subject=Hi%20Tom!">
+          <i class="fa-regular fa-envelope"></i>
+          <div>
+            <div class="lc-label">Email</div>
+            <div class="lc-value">tomschluep@gmail.com</div>
+          </div>
+        </a>
+        <a class="link-card github" href="https://github.com/seventymeters" target="_blank">
+          <i class="fa-brands fa-square-github"></i>
+          <div>
+            <div class="lc-label">GitHub</div>
+            <div class="lc-value">seventymeters</div>
+          </div>
+        </a>
+        <a class="link-card linkedin" href="https://linkedin.com/in/tomschluep" target="_blank">
+          <i class="fa-brands fa-linkedin"></i>
+          <div>
+            <div class="lc-label">LinkedIn</div>
+            <div class="lc-value">/in/tomschluep</div>
+          </div>
+        </a>
+      </div>
+    </div>
+
+    <!-- blinking prompt -->
+    <div class="prompt-line last-prompt">
+      <span class="u">guest</span><span class="prompt-host">@<span class="h">tomschluep.com</span></span>:<span class="p">~</span>$ <span class="cursor"></span>
+    </div>
+
   </div>
 </div>
-</div>
-<!-- partial -->
-  <script src='//cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js'></script>
+
+<script>
+  // ── Hire me toggle ──────────────────────────────────────────
+  // Set to true when actively looking for work, false to hide.
+  var HIRE_ME = true;
+  // ────────────────────────────────────────────────────────────
+
+  if (HIRE_ME) {
+    document.getElementById('hireBadge').classList.add('visible');
+    document.getElementById('resumeCard').classList.add('hire-glow');
+  }
+
+  function toggle(el) {
+    var cat = el.dataset.cat;
+    var detail = document.getElementById('detail-' + cat);
+    var isActive = el.classList.contains('active');
+    document.querySelectorAll('.skill-cat').forEach(function(c) { c.classList.remove('active'); });
+    document.querySelectorAll('.skill-detail').forEach(function(d) { d.classList.remove('visible'); });
+    if (!isActive) {
+      el.classList.add('active');
+      detail.classList.add('visible');
+    }
+  }
+</script>
+
 </body>
 </html>
