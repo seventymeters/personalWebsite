@@ -228,6 +228,17 @@ a {
   margin-bottom: 4px;
 }
 
+.hire-title-mobile {
+  display: none;
+  color: #a6e3a1;
+  font-size: 13px;
+  font-weight: bold;
+}
+
+.cmt-mobile {
+  display: none;
+}
+
 .hire-title {
   color: #a6e3a1;
   font-size: 13px;
@@ -242,10 +253,16 @@ a {
 }
 
 .hire-dot {
-  width: 8px;
-  height: 8px;
+  width: 18px;
+  height: 18px;
   border-radius: 50%;
   background: #a6e3a1;
+  color: #1e1e2e;
+  font-size: 12px;
+  font-weight: bold;
+  display: flex;
+  align-items: center;
+  justify-content: center;
   flex-shrink: 0;
   animation: pulse 2s ease-in-out infinite;
 }
@@ -418,6 +435,12 @@ a {
   .hire-banner-sub {
     display: none;
   }
+
+  .hire-title { display: none; }
+  .hire-title-mobile { display: inline; }
+
+  .cmt-desktop { display: none; }
+  .cmt-mobile { display: inline; }
 
   .resume-card {
     max-width: 100%;
