@@ -7,9 +7,8 @@
       tom [--backend] [--infra] [--sre] [--devops] [--platform]
 
   <ins>DESCRIPTION</ins> <p>
-      Staff-level engineer. 10+ years across backend development,
-      infrastructure, platform engineering, and SRE. Pragmatic
-      hacker mindset. Penchant for bare metal.
+      A pragmatic engineer with 10+ years across backend development,
+  infrastructure, platform engineering, and SRE
 
       Block (formerly Square) ············ 2014 – Present
       Box ································ 2013 – 2014
