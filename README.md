@@ -16,9 +16,10 @@
       Pandora Radio ······················ Summer 2013
       Apple ······························ 2010 – 2013
 
-  <ins>THIS REPO</ins> <p>
-      Personal site. Terminal-style. Vanilla HTML/CSS/JS.
-      No frameworks. No build step. Firebase hosting.
+  <ins>HIRE ME</ins> <p>
+  Available for remote roles and hybrid roles in the SF Bay Area<p>
+  Check out my resume [here](https://app.box.com/file/1125163243435?s=ha169jmki8wy6irb2on1g2de7t2uavo7)
+     
 
   <ins>SEE ALSO</ins> <p>
       [tomschluep.com](www.tomschluep.com) / / [Futures.Coffee](www.futures.coffee)
