@@ -21,4 +21,4 @@
      
 
   <ins>SEE ALSO</ins> <p>
-      [tomschluep.com](www.tomschluep.com) / / [Futures.Coffee](www.futures.coffee)
+      [tomschluep.com](https://tomschluep.com) / / [Futures.Coffee](https://futures.coffee)
